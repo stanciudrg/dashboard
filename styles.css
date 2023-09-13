@@ -160,3 +160,81 @@ svg {
 .button:hover:nth-child(6) span {
     box-shadow: 0px 0px 2px 1px var(--accent-color);
 }
+
+.content {
+    display: grid;
+    grid-template-rows: min-content auto;
+    background-color: var(--secondary-color);
+    margin: 2rem 2rem 2rem 0;
+    border-radius: 1.2rem;
+}
+
+.top-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    padding: 1.5rem 2rem;
+}
+
+label {
+    position: absolute;
+    left: -9999px;
+    overflow: hidden;
+}
+
+.search-bar {
+    display: grid;
+    grid-template-columns: min-content auto;
+    align-items: center;
+    background-color: var(--accent-color);
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.search-bar input {
+    height: 100%;
+    appearance: none;
+    background-color: inherit;
+    color: var(--secondary-color);
+    border: 0;
+}
+
+.search-bar input:focus {
+    appearance: inherit;
+    outline: none;
+    border: inherit;
+}
+
+.search-bar input::placeholder {
+    color: var(--secondary-color);
+}
+
+.profile-details {
+    display: grid;
+    grid-template-columns: min-content auto auto;
+    align-items: center;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.profile-details svg {
+    fill: #181818;
+    cursor: pointer;
+}
+
+.profile-photo img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 100%;
+    box-shadow: 0px 0px 0px 3px var(--accent-color);
+    cursor: pointer;
+}
+
+.profile-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    cursor: pointer;
+}

@@ -1,77 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap');
+
 * {
     font-family: 'Red Hat Display', system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --font-color: #253745;
-    --background-color: #06141B;
-    --primary-color: #253745;
-    --secondary-color: #4A5C6A;
-    --accent-color: #CCD0CF;
+    letter-spacing: 1px;
+    --font-color: #DDDCDB;
+    --background-color: #DDDCDB;
+    --primary-color: #96825F;
+    --secondary-color: #B8B0A0;
+    --accent-color: #181818;
 }
 
 body {
-    background-color: var(--background-color);
     height: 100vh;
+    background-color: var(--background-color);
 }
 
 .main-container {
     height: 100%;
     display: grid;
-    grid-template-columns: min-content auto;
-    gap: 2rem;
+    grid-template-columns: 300px auto;
+    gap: 3rem;
 }
 
 .sidebar {
     position: relative;
     display: grid;
-    grid-template-rows: min-content auto;
-    background-color: var(--accent-color);
-    color: var(--font-color);
-    gap: 3rem;
-    padding: 3rem;
-    margin: 2rem 0rem 2rem 0rem;
+    grid-template-rows: 1fr auto;
+    margin: 2rem 0 2rem 0;
 }
 
 .sidebar::after {
     content: "";
     position: absolute;
+    top: 0;
     left: 100%;
     height: 100%;
-    width: 15px;
-    background-image: linear-gradient(to bottom, #4a5c6a, #415261, #374957, #2e404e, #253745);
-    z-index: -1;
+    width: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 0 2rem 2rem 0;
+}
+
+.logo {
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    background-image: url(hero.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.logo::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: var(--accent-color);
+    opacity: 0.6;
 }
 
 h1 {
-    margin: 0;
-    background: linear-gradient(to right, #4a5c6a, #415261, #374957, #2e404e, #253745);
-    background-clip: text;
+    z-index: 1;
+    background-image: linear-gradient(to right, #96825f, #9e8d6f, #a7997f, #afa48f, #b8b0a0);
     -webkit-background-clip: text;
-    text-fill-color: transparent;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 nav {
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: min-content min-content;
+    background-color: var(--accent-color);
+    color: var(--font-color);
+    padding: 2rem 0 2rem 0;
 }
 
 .button {
+    position: relative;
     display: grid;
     grid-template-columns: min-content auto max-content;
-    gap: 1rem;
-    padding: 1rem 0rem 1rem 0rem;
-    position: relative;
-    cursor: pointer;
     align-items: center;
+    cursor: pointer;
+    gap: 1.5rem;
+    padding: 1rem;
 }
 
 .button::before {
     content: "";
     width: 100%;
-    height: 5px;
+    height: 100%;
     position: absolute;
-    top: 45px;
     left: 0;
-    background: linear-gradient(to right, #4a5c6a, #415261, #374957, #2e404e, #253745);
+    top: 0;
+    background-image: linear-gradient(to right, #96825f, #9e8d6f, #a7997f, #afa48f, #b8b0a0);
     transform: translateX(-150%);
     transition: 0.3s ease-in-out;
 }
@@ -80,28 +101,31 @@ nav {
     transform: translateX(0);
 }
 
-.first-buttons {
-    display: grid;
-    grid-template-rows: repeat(6, min-content);
-}
-
-.second-buttons {
-    display: grid;
-    grid-template-rows: repeat(3, min-content);
-    align-self: end;
+a:focus {
+    appearance: none;
+    outline: none;
+    border: 0;
+    box-shadow: 0px 0px 0px 3px var(--font-color);
 }
 
 a {
+    z-index: 2;
     font-weight: bold;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     text-decoration: none;
+    transition: 0.3s ease-in-out;
 }
 
 svg {
-    fill: var(--primary-color);
+    z-index: 2;
+    width: 25px;
+    height: 25px;
+    fill: var(--secondary-color);
+    transition: 0.3s ease-in-out;
 }
 
 .button span {
+    z-index: 2;
     width: 20px;
     height: 20px;
     display: flex;
@@ -110,6 +134,7 @@ svg {
     font-size: 14px;
     font-weight: bold;
     color: var(--secondary-color);
+    transition: 0.3s ease-in-out;
 }
 
 .button:nth-child(3) span,
@@ -117,5 +142,21 @@ svg {
     background-color: var(--primary-color);
     color: var(--accent-color);
     border-radius: 100%;
-    margin-bottom: 1px;
+}
+
+.button:hover svg {
+    fill: var(--accent-color);
+}
+
+.button:hover a {
+    color: var(--accent-color);
+}
+
+.button:hover span {
+    color: var(--accent-color);
+}
+
+.button:hover:nth-child(3) span,
+.button:hover:nth-child(6) span {
+    box-shadow: 0px 0px 2px 1px var(--accent-color);
 }

@@ -202,22 +202,30 @@ label {
     border-radius: 0.5rem;
 }
 
+.search-bar svg {
+    fill: var(--secondary-color);
+}
+
+.search-bar:focus-within svg {
+    fill: var(--background-color);
+}
+
 .search-bar input {
     height: 100%;
     appearance: none;
     background-color: inherit;
-    color: var(--secondary-color);
+    color: var(--background-color);
     border: 0;
+}
+
+.search-bar:focus-within {
+    outline: 3px solid var(--background-color);
 }
 
 .search-bar input:focus {
     appearance: inherit;
     outline: none;
     border: inherit;
-}
-
-.search-bar input::placeholder {
-    color: var(--secondary-color);
 }
 
 .profile-details {

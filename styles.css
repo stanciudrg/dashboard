@@ -228,6 +228,17 @@ label {
     border: inherit;
 }
 
+/* Disable autofill background color */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition-delay: 9999s;
+    -webkit-transition-delay: 9999s;
+}
+
+
 .profile-details {
     display: grid;
     grid-template-columns: min-content auto auto;

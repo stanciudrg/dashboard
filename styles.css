@@ -10,23 +10,34 @@
     --accent-color: #181818;
 }
 
+html {
+    height: 100%;
+}
+
 body {
-    height: 100vh;
+    height: 100%;
     background-color: var(--background-color);
+}
+
+svg {
+    width: 25px;
+    height: 25px;
 }
 
 .main-container {
     height: 100%;
     display: grid;
     grid-template-columns: 300px auto;
+    box-sizing: border-box;
+    overflow: auto;
     gap: 3rem;
+    padding: 2rem 2rem 2rem 0;
 }
 
 .sidebar {
     position: relative;
     display: grid;
     grid-template-rows: 1fr auto;
-    margin: 2rem 0 2rem 0;
 }
 
 .sidebar::after {
@@ -165,7 +176,6 @@ svg {
     display: grid;
     grid-template-rows: min-content auto;
     background-color: var(--secondary-color);
-    margin: 2rem 2rem 2rem 0;
     border-radius: 1.2rem;
 }
 

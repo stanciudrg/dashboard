@@ -133,7 +133,7 @@ a {
     align-items: center;
     font-size: 14px;
     font-weight: bold;
-    color: var(--secondary-color);
+    color: #b8b0a0d2;
     transition: 0.3s ease-in-out;
 }
 

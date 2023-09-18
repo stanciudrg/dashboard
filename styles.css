@@ -290,9 +290,64 @@ input:-webkit-autofill:active {
     gap: 2rem;
 }
 
-.collection-item,
+figure,
 .new-art,
 .trending {
     background-color: var(--accent-color);
     border-radius: 0.7rem;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+figure {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0;
+    cursor: pointer;
+}
+
+figure img {
+    flex: 1 1 0;
+    overflow: hidden;
+    overflow-clip-margin: initial;
+    object-fit: cover;
+    border-radius: 0.7rem 0.7rem 0 0;
+}
+
+figure:nth-child(4) img {
+    object-position: 0 -35px;
+}
+
+figure:nth-child(5) img {
+    object-position: top;
+}
+
+figure figcaption {
+    width: 100%;
+    position: absolute;
+    bottom: -2.7rem;
+    font-size: 0.9rem;
+    line-height: 3;
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 0 0 0.7rem 0.7rem;
+    transition: .3s;
+}
+
+figure:hover figcaption {
+    bottom: 0;
+}
+
+figcaption svg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    fill: var(--primary-color);
+    padding: 1rem 3rem;
+}
+
+figcaption svg:last-of-type {
+    margin-right: 2rem;
 }

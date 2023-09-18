@@ -27,28 +27,16 @@ svg {
 .main-container {
     height: 100%;
     display: grid;
-    grid-template-columns: 300px auto;
+    grid-template-columns: 270px auto;
     box-sizing: border-box;
     overflow: auto;
-    gap: 3rem;
+    gap: 2rem;
     padding: 2rem 2rem 2rem 0;
 }
 
 .sidebar {
-    position: relative;
     display: grid;
     grid-template-rows: 1fr auto;
-}
-
-.sidebar::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 100%;
-    height: 100%;
-    width: 20px;
-    background-color: var(--secondary-color);
-    border-radius: 0 2rem 2rem 0;
 }
 
 .logo {
@@ -59,6 +47,7 @@ svg {
     background-image: url(hero.jpg);
     background-position: center;
     background-size: cover;
+    border-radius: 0 1.2rem 0 0;
 }
 
 .logo::before {
@@ -68,6 +57,7 @@ svg {
     width: 100%;
     background-color: var(--accent-color);
     opacity: 0.6;
+    border-radius: 0 1.2rem 0 0;
 }
 
 h1 {
@@ -84,6 +74,7 @@ nav {
     background-color: var(--accent-color);
     color: var(--font-color);
     padding: 2rem 0 2rem 0;
+    border-radius: 0 0 1.2rem 0;
 }
 
 .button {
@@ -93,7 +84,7 @@ nav {
     align-items: center;
     cursor: pointer;
     gap: 1.5rem;
-    padding: 1rem;
+    padding: 1rem 1.5rem 1rem 1rem;
 }
 
 .button::before {
@@ -127,10 +118,8 @@ a {
     transition: 0.3s ease-in-out;
 }
 
-svg {
+.button svg {
     z-index: 2;
-    width: 25px;
-    height: 25px;
     fill: var(--secondary-color);
     transition: 0.3s ease-in-out;
 }

@@ -105,7 +105,7 @@ nav button::before {
     top: 0;
     background-image: linear-gradient(to right, #96825f, #9e8d6f, #a7997f, #afa48f, #b8b0a0);
     transform: translateX(-150%);
-    transition: 0.3s ease-in-out;
+    transition: 0.3s;
 }
 
 nav button:hover::before {
@@ -125,13 +125,13 @@ nav button a {
     font-weight: bold;
     color: var(--secondary-color);
     text-decoration: none;
-    transition: 0.3s ease-in-out;
+    transition: 0.3s;
 }
 
 nav button svg {
     z-index: 2;
     fill: var(--secondary-color);
-    transition: 0.3s ease-in-out;
+    transition: 0.3s;
 }
 
 nav button span {
@@ -144,7 +144,7 @@ nav button span {
     font-size: 14px;
     font-weight: bold;
     color: #b8b0a0d2;
-    transition: 0.3s ease-in-out;
+    transition: 0.3s;
 }
 
 nav button:nth-child(3) span,
@@ -281,34 +281,34 @@ input:-webkit-autofill:active {
     color: var(--accent-color);
 }
 
-.collection-container,
-.new_art-container,
-.trending-container {
+.collection-section,
+.new_art-section,
+.trending-section {
     display: grid;
     grid-template-rows: min-content auto;
     gap: 1rem;
 }
 
-.collection-container {
+.collection-container figure,
+.new_art-container,
+.trending-container {
+    background-color: var(--accent-color);
+    border-radius: 0.7rem;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.collection-section {
     grid-row: 1 / 3;
 }
 
-.collection {
+.collection-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 2rem;
 }
 
-figure,
-.new-art,
-.trending {
-    background-color: var(--accent-color);
-    border-radius: 0.7rem;
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
-}
-
-figure {
+.collection-container figure {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -317,7 +317,7 @@ figure {
     cursor: pointer;
 }
 
-figure img {
+.collection-container figure img {
     flex: 1 1 0;
     overflow: hidden;
     overflow-clip-margin: initial;
@@ -325,15 +325,15 @@ figure img {
     border-radius: 0.7rem 0.7rem 0 0;
 }
 
-figure:nth-child(4) img {
+.collection-container figure:nth-child(4) img {
     object-position: 0 -35px;
 }
 
-figure:nth-child(5) img {
+.collection-container figure:nth-child(5) img {
     object-position: top;
 }
 
-figure figcaption {
+.collection-container figure figcaption {
     width: 100%;
     position: absolute;
     bottom: -2.7rem;
@@ -346,11 +346,11 @@ figure figcaption {
     transition: .3s;
 }
 
-figure:hover figcaption {
+.collection-container figure:hover figcaption {
     bottom: 0;
 }
 
-figcaption svg {
+.collection-container figcaption svg {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -358,6 +358,6 @@ figcaption svg {
     padding: 1rem 3rem;
 }
 
-figcaption svg:last-of-type {
+.collection-container figcaption svg:last-of-type {
     margin-right: 2rem;
 }

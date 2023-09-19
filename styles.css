@@ -10,12 +10,9 @@
     --accent-color: #181818;
 }
 
-html {
-    height: 100%;
-}
 
 body {
-    height: 100%;
+    height: 100vh;
     background-color: var(--background-color);
 }
 
@@ -33,19 +30,26 @@ button {
     border: 0;
 }
 
+label {
+    position: absolute;
+    left: -9999px;
+    overflow: hidden;
+}
+
 .main-container {
     height: 100%;
     display: grid;
     grid-template-columns: 270px auto;
     box-sizing: border-box;
     overflow: auto;
-    gap: 2rem;
-    padding: 2rem 2rem 2rem 0;
+    gap: 1.5rem;
+    padding: 1.5rem 1.5rem 1.5rem 0;
 }
 
 .sidebar {
     display: grid;
     grid-template-rows: 1fr auto;
+    border-radius: 2rem;
 }
 
 .logo {
@@ -81,8 +85,7 @@ nav {
     display: grid;
     grid-template-rows: min-content min-content;
     background-color: var(--accent-color);
-    color: var(--font-color);
-    padding: 2rem 0 2rem 0;
+    padding: 1rem 0;
     border-radius: 0 0 1.2rem 0;
 }
 
@@ -91,7 +94,6 @@ nav button {
     display: grid;
     grid-template-columns: min-content auto max-content;
     align-items: center;
-    cursor: pointer;
     gap: 1.5rem;
     padding: 1rem 1.5rem 1rem 1rem;
 }
@@ -106,17 +108,11 @@ nav button::before {
     background-image: linear-gradient(to right, #96825f, #9e8d6f, #a7997f, #afa48f, #b8b0a0);
     transform: translateX(-150%);
     transition: 0.3s;
+    will-change: transform;
 }
 
 nav button:hover::before {
     transform: translateX(0);
-}
-
-nav button a:focus {
-    appearance: none;
-    outline: none;
-    border: 0;
-    box-shadow: 0px 0px 0px 3px var(--font-color);
 }
 
 nav button a {
@@ -126,12 +122,28 @@ nav button a {
     color: var(--secondary-color);
     text-decoration: none;
     transition: 0.3s;
+    pointer-events: none;
+}
+
+nav button:hover a {
+    color: var(--accent-color);
+}
+
+nav button a:focus {
+    appearance: none;
+    outline: none;
+    border: 0;
+    box-shadow: 0px 0px 0px 3px var(--font-color);
 }
 
 nav button svg {
     z-index: 2;
     fill: var(--secondary-color);
     transition: 0.3s;
+}
+
+nav button:hover svg {
+    fill: var(--accent-color);
 }
 
 nav button span {
@@ -147,23 +159,15 @@ nav button span {
     transition: 0.3s;
 }
 
+nav button:hover span {
+    color: var(--accent-color);
+}
+
 nav button:nth-child(3) span,
 nav button:nth-child(6) span {
     background-color: var(--primary-color);
     color: var(--accent-color);
     border-radius: 100%;
-}
-
-nav button:hover svg {
-    fill: var(--accent-color);
-}
-
-nav button:hover a {
-    color: var(--accent-color);
-}
-
-nav button:hover span {
-    color: var(--accent-color);
 }
 
 nav button:hover:nth-child(3) span,
@@ -177,29 +181,29 @@ nav button:hover:nth-child(6) span {
     background-color: var(--secondary-color);
     border-radius: 1.2rem;
     gap: 2rem;
+    padding: 1.5rem;
 }
 
 .top-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
     align-items: center;
-    padding: 1.5rem 2rem 0 2rem;
-}
-
-label {
-    position: absolute;
-    left: -9999px;
-    overflow: hidden;
 }
 
 .search-bar {
+    height: 55px;
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: min-content auto;
-    align-items: center;
+    align-self: start;
     background-color: var(--accent-color);
     gap: 1rem;
     padding: 1rem;
     border-radius: 0.5rem;
+}
+
+.search-bar:focus-within {
+    outline: 3px solid var(--background-color);
 }
 
 .search-bar svg {
@@ -211,15 +215,12 @@ label {
 }
 
 .search-bar input {
+    width: 100%;
     height: 100%;
     appearance: none;
     background-color: inherit;
     color: var(--background-color);
     border: 0;
-}
-
-.search-bar:focus-within {
-    outline: 3px solid var(--background-color);
 }
 
 .search-bar input:focus {
@@ -238,12 +239,14 @@ input:-webkit-autofill:active {
     -webkit-transition-delay: 9999s;
 }
 
+/* ----- */
+
 .profile-details {
     display: grid;
     grid-template-columns: min-content auto auto;
     align-items: center;
     justify-content: end;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .profile-details svg {
@@ -252,8 +255,8 @@ input:-webkit-autofill:active {
 }
 
 .profile-photo img {
-    width: 70px;
-    height: 70px;
+    width: 55px;
+    height: 55px;
     object-fit: cover;
     border-radius: 100%;
     box-shadow: 0px 0px 0px 3px var(--accent-color);
@@ -261,7 +264,6 @@ input:-webkit-autofill:active {
 }
 
 .profile-name {
-    font-size: 1.1rem;
     font-weight: bold;
     color: var(--accent-color);
     cursor: pointer;
@@ -270,14 +272,13 @@ input:-webkit-autofill:active {
 .main-content {
     display: grid;
     grid-template-columns: auto 250px;
-    grid-template-rows: 1fr 1fr;
-    gap: 3rem;
-    padding: 0 2rem 2rem 2rem;
+    grid-template-rows: 355px auto;
+    gap: 2.5rem;
 }
 
 .main-content h2 {
-    margin: 0;
-    font-size: 1.2rem;
+    margin: 0 0 0 0.5rem;
+    font-size: 1.1rem;
     color: var(--accent-color);
 }
 
@@ -303,9 +304,9 @@ input:-webkit-autofill:active {
 
 .collection-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
     grid-template-rows: 1fr 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .collection-container figure {
@@ -317,7 +318,7 @@ input:-webkit-autofill:active {
     cursor: pointer;
 }
 
-.collection-container figure img {
+.collection-container img {
     flex: 1 1 0;
     overflow: hidden;
     overflow-clip-margin: initial;
@@ -349,7 +350,6 @@ input:-webkit-autofill:active {
     will-change: transform;
 }
 
-
 .collection-container figure:hover figcaption {
     transform: translateY(0);
 }
@@ -362,15 +362,6 @@ input:-webkit-autofill:active {
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
     padding: 1rem;
-}
-
-.fig-buttons button {
-    appearance: none;
-    background-color: inherit;
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
-    border: 0;
 }
 
 .fig-buttons svg {

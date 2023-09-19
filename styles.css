@@ -333,31 +333,50 @@ input:-webkit-autofill:active {
     object-position: top;
 }
 
-.collection-container figure figcaption {
+.collection-container figcaption {
     width: 100%;
     position: absolute;
-    bottom: -2.7rem;
+    bottom: 0;
+    box-sizing: border-box;
     font-size: 0.9rem;
     line-height: 3;
     background-color: var(--accent-color);
     color: var(--secondary-color);
     padding: 0.5rem 1rem 0.5rem 1rem;
     border-radius: 0 0 0.7rem 0.7rem;
-    transition: .3s;
+    transform: translateY(2.7rem);
+    transition: 0.3s;
+    will-change: transform;
 }
+
 
 .collection-container figure:hover figcaption {
-    bottom: 0;
+    transform: translateY(0);
 }
 
-.collection-container figcaption svg {
+.fig-buttons {
     position: absolute;
     right: 0;
     bottom: 0;
-    fill: var(--primary-color);
-    padding: 1rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 1rem;
 }
 
-.collection-container figcaption svg:last-of-type {
-    margin-right: 2rem;
+.fig-buttons button {
+    appearance: none;
+    background-color: inherit;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.fig-buttons svg {
+    fill: var(--secondary-color);
+}
+
+.fig-buttons svg:hover {
+    fill: var(--primary-color);
 }

@@ -10,7 +10,6 @@
     --accent-color: #181818;
 }
 
-
 body {
     height: 100vh;
     background-color: var(--background-color);
@@ -98,6 +97,12 @@ nav button {
     padding: 1rem 1.5rem 1rem 1rem;
 }
 
+nav button:focus-visible {
+    appearance: none;
+    outline: none;
+    border: none;
+}
+
 nav button::before {
     content: "";
     width: 100%;
@@ -111,7 +116,8 @@ nav button::before {
     will-change: transform;
 }
 
-nav button:hover::before {
+nav button:hover::before,
+nav button:focus-visible::before {
     transform: translateX(0);
 }
 
@@ -125,15 +131,15 @@ nav button a {
     pointer-events: none;
 }
 
-nav button:hover a {
-    color: var(--accent-color);
-}
-
-nav button a:focus {
+nav button a:focus-visible {
     appearance: none;
     outline: none;
-    border: 0;
-    box-shadow: 0px 0px 0px 3px var(--font-color);
+    border: none;
+}
+
+nav button:hover a,
+nav button:focus-visible a {
+    color: var(--accent-color);
 }
 
 nav button svg {
@@ -142,7 +148,8 @@ nav button svg {
     transition: 0.3s;
 }
 
-nav button:hover svg {
+nav button:hover svg,
+nav button:focus-visible svg {
     fill: var(--accent-color);
 }
 
@@ -159,7 +166,8 @@ nav button span {
     transition: 0.3s;
 }
 
-nav button:hover span {
+nav button:hover span,
+nav button:focus-visible span {
     color: var(--accent-color);
 }
 
@@ -171,7 +179,8 @@ nav button:nth-child(6) span {
 }
 
 nav button:hover:nth-child(3) span,
-nav button:hover:nth-child(6) span {
+nav button:focus-visible:nth-child(3) span,
+nav button:hover:nth-child(6) span nav button:focus:nth-child(6) span {
     box-shadow: 0px 0px 2px 1px var(--accent-color);
 }
 
@@ -223,7 +232,7 @@ nav button:hover:nth-child(6) span {
     border: 0;
 }
 
-.search-bar input:focus {
+.search-bar input:focus-visible {
     appearance: inherit;
     outline: none;
     border: inherit;
@@ -249,9 +258,51 @@ input:-webkit-autofill:active {
     gap: 1.5rem;
 }
 
-.profile-details svg {
+.profile-details button {
+    position: relative;
+}
+
+.profile-details button:focus-visible {
+    appearance: none;
+    border: 0;
+    outline: none;
+}
+
+.profile-details button:focus-visible::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--background-color);
+    border-radius: 100%;
+}
+
+.profile-details button svg {
     fill: #181818;
     cursor: pointer;
+}
+
+.profile-photo {
+    position: relative;
+}
+
+.profile-photo:focus-visible {
+    appearance: none;
+    border: 0;
+    outline: none;
+}
+
+.profile-photo:focus-visible::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: 65px;
+    height: 65px;
+    border: 3px solid var(--background-color);
+    border-radius: 100%;
 }
 
 .profile-photo img {
@@ -264,9 +315,27 @@ input:-webkit-autofill:active {
 }
 
 .profile-name {
+    position: relative;
     font-weight: bold;
     color: var(--accent-color);
     cursor: pointer;
+}
+
+.profile-name:focus-visible {
+    appearance: none;
+    border: none;
+    outline: none;
+}
+
+.profile-name:focus-visible::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -8px;
+    width: 110%;
+    height: 120%;
+    border: 3px solid var(--background-color);
+    border-radius: 1rem;
 }
 
 .main-content {
@@ -318,6 +387,12 @@ input:-webkit-autofill:active {
     cursor: pointer;
 }
 
+.collection-container figure:focus-visible {
+    appearance: none;
+    border: 0;
+    outline: 3px solid var(--background-color)
+}
+
 .collection-container img {
     flex: 1 1 0;
     overflow: hidden;
@@ -350,7 +425,9 @@ input:-webkit-autofill:active {
     will-change: transform;
 }
 
-.collection-container figure:hover figcaption {
+.collection-container figure:hover figcaption,
+.collection-container figure:focus-visible figcaption,
+.collection-container figure:has(:focus-visible) figcaption {
     transform: translateY(0);
 }
 
@@ -364,10 +441,32 @@ input:-webkit-autofill:active {
     padding: 1rem;
 }
 
-.fig-buttons svg {
+.fig-buttons button {
+    position: relative;
+}
+
+.fig-buttons button:focus-visible {
+    appearance: none;
+    outline: none;
+    border: none;
+}
+
+.fig-buttons button:focus-visible::before {
+    content: "";
+    position: absolute;
+    top: -3.5px;
+    left: -4.5px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--background-color);
+    border-radius: 0.3rem;
+}
+
+.fig-buttons button svg {
     fill: var(--secondary-color);
 }
 
-.fig-buttons svg:hover {
+.fig-buttons button:hover svg,
+.fig-buttons button:focus-visible svg {
     fill: var(--primary-color);
 }

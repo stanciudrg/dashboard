@@ -427,7 +427,7 @@ input:-webkit-autofill:active {
 
 .collection-container figure:hover figcaption,
 .collection-container figure:focus-visible figcaption,
-.collection-container figure:has(:focus-visible) figcaption {
+.collection-container figure:focus-within figcaption {
     transform: translateY(0);
 }
 

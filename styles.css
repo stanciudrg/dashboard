@@ -8,6 +8,7 @@
     --primary-color: #96825F;
     --secondary-color: #B8B0A0;
     --accent-color: #181818;
+    overflow-clip-margin: initial;
 }
 
 body {
@@ -113,7 +114,6 @@ nav button::before {
     background-image: linear-gradient(to right, #96825f, #9e8d6f, #a7997f, #afa48f, #b8b0a0);
     transform: translateX(-150%);
     transition: 0.3s;
-    will-change: transform;
 }
 
 nav button:hover::before,
@@ -213,6 +213,7 @@ nav button:hover:nth-child(6) span nav button:focus:nth-child(6) span {
 
 .search-bar:focus-within {
     outline: 3px solid var(--background-color);
+    border-radius: 0.5rem;
 }
 
 .search-bar svg {
@@ -306,8 +307,6 @@ input:-webkit-autofill:active {
 }
 
 .profile-photo img {
-    width: 55px;
-    height: 55px;
     object-fit: cover;
     border-radius: 100%;
     box-shadow: 0px 0px 0px 3px var(--accent-color);
@@ -360,8 +359,7 @@ input:-webkit-autofill:active {
 }
 
 .collection-container figure,
-.new_art-container,
-.trending-container {
+.new_art-container {
     background-color: var(--accent-color);
     border-radius: 0.7rem;
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
@@ -398,7 +396,6 @@ input:-webkit-autofill:active {
     height: 100%;
     flex: 1 1 0;
     overflow: hidden;
-    overflow-clip-margin: initial;
     object-fit: cover;
     border-radius: 0.7rem 0.7rem 0 0;
 }
@@ -424,7 +421,6 @@ input:-webkit-autofill:active {
     border-radius: 0 0 0.7rem 0.7rem;
     transform: translateY(2.7rem);
     transition: 0.3s;
-    will-change: transform;
 }
 
 .collection-container figure:hover figcaption,

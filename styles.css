@@ -138,9 +138,8 @@ nav a:focus-visible svg {
 
 nav a span {
     z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-content: center;
     font-weight: bold;
     transition: 0.3s;
 }
@@ -458,9 +457,8 @@ input:-webkit-autofill:active {
 
 .new_art-container {
     overflow: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    place-content: center;
     padding: 3px 15px 0 15px;
 }
 
@@ -507,9 +505,8 @@ input:-webkit-autofill:active {
 }
 
 .new_art-scrollable figcaption {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    place-content: center;
     font-size: 0.8rem;
     color: var(--accent-color);
     background-color: var(--secondary-color);
@@ -533,9 +530,8 @@ input:-webkit-autofill:active {
 
 .trending-item {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-content: center;
     background-size: cover;
     background-position: center;
     padding: 0.5rem;

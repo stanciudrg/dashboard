@@ -86,8 +86,6 @@ h1 {
 }
 
 nav {
-    display: grid;
-    grid-template-rows: min-content min-content;
     background-color: var(--accent-color);
     padding: 1rem 0;
     border-radius: 0 0 1.2rem 0;
@@ -282,24 +280,15 @@ input:-webkit-autofill:active {
 }
 
 .profile-details button:first-of-type {
-    position: relative;
+    display: grid;
+    place-content: center;
 }
 
 .profile-details button:first-of-type:focus-visible {
     appearance: none;
     border: 0;
-    outline: none;
-}
-
-.profile-details button:first-of-type:focus-visible::before {
-    content: "";
-    position: absolute;
-    top: -15%;
-    left: -20%;
-    width: 30px;
-    height: 30px;
-    border: 3px solid var(--background-color);
-    border-radius: 100%;
+    outline: 3px solid var(--background-color);
+    border-radius: 0.3rem;
 }
 
 .profile-details button:first-of-type svg {
@@ -319,15 +308,14 @@ input:-webkit-autofill:active {
 .profile-details button:last-of-type img {
     object-fit: cover;
     border-radius: 100%;
-    box-shadow: 0px 0px 0px 3px var(--accent-color);
+    outline: 3px solid var(--accent-color);
 }
 
 .profile-details button:last-of-type:focus-visible img {
-    box-shadow: 0px 0px 0px 5px var(--background-color);
+    outline: 5px solid var(--background-color);
 }
 
 .profile-name {
-    position: relative;
     font-weight: bold;
     color: var(--accent-color);
 }
@@ -335,18 +323,8 @@ input:-webkit-autofill:active {
 .profile-name:focus-visible {
     appearance: none;
     border: none;
-    outline: none;
-}
-
-.profile-name:focus-visible::before {
-    content: "";
-    position: absolute;
-    top: -20%;
-    left: -10%;
-    width: 120px;
-    height: 20px;
-    border: 3px solid var(--background-color);
-    border-radius: 1rem;
+    outline: 3px solid var(--background-color);
+    border-radius: 0.3rem;
 }
 
 .main-content {
@@ -453,23 +431,14 @@ input:-webkit-autofill:active {
 }
 
 .fig-buttons button {
-    position: relative;
+    display: grid;
+    place-content: center;
 }
 
 .fig-buttons button:focus-visible {
     appearance: none;
-    outline: none;
     border: none;
-}
-
-.fig-buttons button:focus-visible::before {
-    content: "";
-    position: absolute;
-    top: -15%;
-    left: -18%;
-    width: 30px;
-    height: 30px;
-    border: 2px solid var(--background-color);
+    outline: 2px solid var(--background-color);
     border-radius: 0.3rem;
 }
 

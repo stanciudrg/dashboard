@@ -1,14 +1,9 @@
-let shareButton = document.querySelectorAll(".share-btn");
-let downloadButton = document.querySelectorAll(".download-btn");
 let scrollUpButton = document.querySelector(".scroll-up");
 let scrollDownButton = document.querySelector(".scroll-down");
 let scrollableContainer = document.querySelector(".new_art-scrollable");
+let figure = document.querySelectorAll("figure");
 
-shareButton.forEach(button => button.addEventListener('mousedown', (e) => {
-    e.preventDefault();
-}));
-
-downloadButton.forEach(button => button.addEventListener('mousedown', (e) => {
+figure.forEach(button => button.addEventListener('mousedown', (e) => {
     e.preventDefault();
 }));
 
@@ -28,3 +23,4 @@ scrollUpButton.addEventListener("click", (e) => {
         behavior: "smooth",
     });
 })
+

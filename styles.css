@@ -198,11 +198,10 @@ nav a:hover:nth-child(6) span+span {
     height: 55px;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: min-content auto;
+    grid-template-columns: min-content auto min-content;
     align-self: start;
+    align-items: center;
     background-color: var(--accent-color);
-    gap: 1rem;
-    padding: 1rem;
     border-radius: 0.5rem;
 }
 
@@ -211,8 +210,11 @@ nav a:hover:nth-child(6) span+span {
     border-radius: 0.5rem;
 }
 
-.search-bar svg {
+.search-bar>svg {
     fill: var(--secondary-color);
+    cursor: text;
+    height: 100%;
+    padding-left: 1rem;
 }
 
 .search-bar:focus-within svg {
@@ -224,14 +226,39 @@ nav a:hover:nth-child(6) span+span {
     height: 100%;
     appearance: none;
     background-color: inherit;
-    color: var(--background-color);
+    color: var(--secondary-color);
     border: 0;
+    padding-left: 1rem;
+}
+
+.search-bar:focus-within input {
+    color: var(--background-color);
+}
+
+.search-bar input::-webkit-search-cancel-button {
+    appearance: none;
 }
 
 .search-bar input:focus-visible {
     appearance: inherit;
     outline: none;
     border: inherit;
+    color: var(--background-color);
+}
+
+.search-bar button {
+    display: grid;
+    place-content: center;
+    fill: var(--secondary-color);
+    visibility: hidden;
+    margin: 0 1rem;
+}
+
+.search-bar button:focus-visible {
+    appearance: none;
+    border: none;
+    outline: 2px solid var(--background-color);
+    border-radius: 0.3rem;
 }
 
 /* Disable autofill background color */

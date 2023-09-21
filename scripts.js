@@ -4,7 +4,23 @@ let scrollableContainer = document.querySelector(".new_art-scrollable");
 let figure = document.querySelectorAll("figure");
 let searchBar = document.querySelector('input[type="search"]');
 let clearSearchBar = document.querySelector(".searchbar_clear-icon");
-let searchBarIcon = document.querySelector('.searchbar-icon')
+let searchBarIcon = document.querySelector('.searchbar-icon');
+
+window.addEventListener('load', (e) => {
+
+    let sidebarLogo = document.querySelector(".logo");
+    let content = document.querySelector(".content");
+    let loadingAnimation = document.querySelector(".loading-animation");
+
+    setInterval(show, 1500);
+
+    function show() {
+        sidebarLogo.firstElementChild.textContent = "Dashboard";
+        sidebarLogo.classList.add("show-logo");
+        loadingAnimation.classList.remove("show");
+        content.classList.add("show");
+    }
+})
 
 searchBarIcon.addEventListener("click", (e) => {
     searchBar.focus();

@@ -38,6 +38,7 @@ label {
 
 a {
     text-decoration: none;
+    color: var(--secondary-color);
 }
 
 .main-container {
@@ -61,10 +62,15 @@ a {
     display: grid;
     align-items: center;
     justify-items: center;
-    background-image: url(hero.webp);
+    background-color: var(--accent-color);
     background-position: center;
     background-size: cover;
     border-radius: 0 1.2rem 0 0;
+}
+
+.show-logo {
+    background-color: unset;
+    background-image: url(hero.webp);
 }
 
 .logo::before {
@@ -177,8 +183,41 @@ nav a:hover:nth-child(6) span+span {
     box-shadow: 0px 0px 2px 1px var(--accent-color);
 }
 
+.loading-animation {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    background-color: var(--accent-color);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.dual-ring {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid var(--primary-color);
+    border-color: var(--primary-color) transparent var(--secondary-color) transparent;
+    animation: dual-ring 1.2s linear infinite;
+}
+
+@keyframes dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .content {
-    display: grid;
+    display: none;
     grid-template-rows: min-content auto;
     background-color: var(--secondary-color);
     border-radius: 1.2rem;
@@ -594,4 +633,8 @@ input:-webkit-autofill:active {
 
 .trending-item:focus-visible span {
     outline: 3px solid var(--background-color);
+}
+
+.show {
+    display: grid;
 }

@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="preload" as="style" href="styles.css">
+    <link rel="preload" as="style" href="normalize.css">
+    <link rel="preload" as="script" href="scripts.js">
     <link rel="preload" as="image" href="hero.webp">
     <link rel="preload" as="image" href="profile-icon.webp">
     <link rel="preload" as="image" href="paintings/cleopatras-banquet.webp">
@@ -30,7 +33,7 @@
     <div class="main-container">
         <section class="sidebar">
             <div class="logo">
-                <h1>Dashboard</h1>
+                <h1>Loading...</h1>
             </div>
             <nav>
                 <a href="#">
@@ -104,7 +107,9 @@
                 </a>
             </nav>
         </section>
-
+        <div class="loading-animation show">
+            <div class="dual-ring"></div>
+        </div>
         <div class="content">
             <div class="top-content">
                 <label for="search">Search</label>

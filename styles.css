@@ -62,7 +62,7 @@ a {
     height: 100%;
     width: 270px;
     display: grid;
-    grid-template-rows: 270px 1fr;
+    grid-template-rows: 1fr 2fr;
     border-radius: 0 2rem 2rem 0;
     box-sizing: border-box;
     padding: 1rem 0;
@@ -76,6 +76,7 @@ a {
     background-color: var(--accent-color);
     background-position: center;
     background-size: cover;
+    padding: 1rem 0;
     border-radius: 0 1.2rem 0 0;
 }
 
@@ -90,7 +91,6 @@ a {
 }
 
 h1 {
-    display: none;
     z-index: 1;
     background-image: linear-gradient(to right, #96825f, #9e8d6f, #a7997f, #afa48f, #b8b0a0);
     -webkit-background-clip: text;
@@ -193,10 +193,14 @@ nav a:hover:nth-child(6) span+span {
 
 .content {
     display: none;
-    grid-template-rows: min-content auto;
     background-color: var(--secondary-color);
+}
+
+main {
+    display: grid;
+    grid-template-rows: min-content auto auto;
     gap: 2rem;
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 0 1.5rem;
 }
 
 .top-content {
@@ -445,13 +449,15 @@ input:-webkit-autofill:active {
     position: absolute;
     bottom: 0;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     font-size: 0.9rem;
-    line-height: 3;
     background-color: var(--accent-color);
     color: var(--secondary-color);
-    padding: 0.5rem 1rem 0.5rem 1rem;
+    gap: 20px;
+    padding: 10px 10px 10px 10px;
     border-radius: 0 0 0.7rem 0.7rem;
-    transform: translateY(2.7rem);
+    transform: translateY(36px);
     transition: 0.3s;
 }
 
@@ -467,8 +473,8 @@ input:-webkit-autofill:active {
     bottom: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-    padding: 1rem;
+    gap: 8px;
+    padding: 10px;
 }
 
 .fig-buttons button {
@@ -640,6 +646,36 @@ input:-webkit-autofill:active {
     outline: 3px solid var(--background-color);
 }
 
+footer {
+    max-height: 100px;
+    box-sizing: border-box;
+    align-self: end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.contact-info {
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-info a svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--secondary-color);
+}
+
+.contact-info a svg:hover {
+    fill: var(--background-color);
+}
+
 .loading-animation {
     margin: auto;
     display: none;
@@ -679,10 +715,6 @@ input:-webkit-autofill:active {
 .show-hero {
     background-color: unset;
     background-image: url(hero.webp);
-}
-
-.show-title {
-    display: initial;
 }
 
 @media (max-width: 1050px) {

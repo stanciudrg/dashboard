@@ -680,3 +680,36 @@ input:-webkit-autofill:active {
 .show-title {
     display: initial;
 }
+
+@media (max-width: 1050px) {
+
+    .main-container {
+        grid-template-columns: 50px auto;
+    }
+
+    .sidebar-fixed {
+        grid-template-rows: auto;
+        width: 50px;
+        justify-content: center;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    nav {
+        display: grid;
+        align-content: center;
+        border-radius: 0 1.2rem 1.2rem 0;
+    }
+
+    nav a {
+        grid-template-columns: auto;
+        padding: 1rem;
+    }
+
+    nav a svg+span,
+    nav a span+span {
+        display: none;
+    }
+}

@@ -49,7 +49,6 @@ a {
     box-sizing: border-box;
     overflow: auto;
     gap: 1.5rem;
-    padding: 1rem 1rem 1rem 0;
 }
 
 .sidebar {
@@ -196,18 +195,20 @@ nav a:hover:nth-child(6) span+span {
     display: none;
     grid-template-rows: min-content auto;
     background-color: var(--secondary-color);
-    border-radius: 1.2rem;
     gap: 2rem;
     padding: 1.5rem;
 }
 
 .top-content {
     display: grid;
-    grid-template-columns: 500px 2fr;
+    grid-template-columns: auto auto;
     align-items: center;
+    gap: 2rem;
 }
 
 .search-bar {
+    min-width: 350px;
+    max-width: 500px;
     height: 55px;
     box-sizing: border-box;
     display: grid;
@@ -275,6 +276,7 @@ nav a:hover:nth-child(6) span+span {
 }
 
 /* Disable autofill background color */
+
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -520,6 +522,8 @@ input:-webkit-autofill:active {
 
 .new_art-scrollable::-webkit-scrollbar {
     display: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .new_art-scrollable a:focus-visible {

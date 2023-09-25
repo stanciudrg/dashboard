@@ -339,6 +339,7 @@ input:-webkit-autofill:active {
 .profile-name {
     font-weight: bold;
     color: var(--accent-color);
+    margin-right: 11px;
 }
 
 .profile-name:focus-visible {

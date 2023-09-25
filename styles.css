@@ -53,9 +53,20 @@ a {
 }
 
 .sidebar {
+    position: relative;
+}
+
+.sidebar-fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 270px;
     display: grid;
     grid-template-rows: 270px 1fr;
-    border-radius: 2rem;
+    border-radius: 0 2rem 2rem 0;
+    box-sizing: border-box;
+    padding: 1rem 0;
 }
 
 .logo {

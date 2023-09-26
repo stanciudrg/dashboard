@@ -6,6 +6,18 @@ let searchBar = document.querySelector('input[type="search"]');
 let clearSearchBar = document.querySelector(".searchbar_clear-icon");
 let searchBarIcon = document.querySelector('.searchbar-icon');
 
+window.addEventListener('scroll', (e) => {
+
+    let topContent = document.querySelector('.top-content');
+
+    if (topContent.offsetTop > 0) {
+        topContent.style.boxShadow = "0px 7px 20px -20px var(--accent-color)";
+    } else {
+        topContent.style.boxShadow = "none";
+    }
+
+})
+
 window.addEventListener('load', (e) => {
 
     let sidebarLogo = document.querySelector(".logo");

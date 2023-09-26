@@ -1,10 +1,17 @@
-let scrollUpButton = document.querySelector(".scroll-up");
-let scrollDownButton = document.querySelector(".scroll-down");
-let scrollableContainer = document.querySelector(".new_art-scrollable");
-let figure = document.querySelectorAll("figure");
-let searchBar = document.querySelector('input[type="search"]');
-let clearSearchBar = document.querySelector(".searchbar_clear-icon");
-let searchBarIcon = document.querySelector('.searchbar-icon');
+const scrollUpButton = document.querySelector(".scroll-up");
+const scrollDownButton = document.querySelector(".scroll-down");
+const scrollableContainer = document.querySelector(".new_art-scrollable");
+const figure = document.querySelectorAll("figure");
+const searchBar = document.querySelector('input[type="search"]');
+const clearSearchBar = document.querySelector(".searchbar_clear-icon");
+const searchBarIcon = document.querySelector('.searchbar-icon');
+const collectionContainer = document.querySelector('.collection-container');
+const newArtContainer = document.querySelector('.new_art-container');
+collectionContainer.addEventListener('mouseover', addWillChange);
+newArtContainer.addEventListener('mouseover', addWillChange);
+collectionContainer.addEventListener('mouseout', removeWillChange);
+newArtContainer.addEventListener('mouseout', removeWillChange);
+
 
 window.addEventListener('scroll', (e) => {
 
@@ -33,6 +40,23 @@ window.addEventListener('load', (e) => {
         content.classList.add("show");
     }
 })
+
+function addWillChange(e) {
+    if (this.classList.contains("new_art-container")) {
+        this.firstElementChild.nextElementSibling.style.willChange = 'scroll-position';
+    } else {
+        this.style.willChange = 'scroll-position';
+    }
+
+}
+
+function removeWillChange(e) {
+    if (this.classList.contains("new_art-container")) {
+        this.firstElementChild.nextElementSibling.style.willChange = 'auto';
+    } else {
+        this.style.willChange = 'auto';
+    }
+}
 
 searchBarIcon.addEventListener("click", (e) => {
     searchBar.focus();

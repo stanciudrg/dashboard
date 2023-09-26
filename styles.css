@@ -582,7 +582,6 @@ input:-webkit-autofill:active {
     gap: 15px;
     border-radius: 0.3rem;
     margin-bottom: 3px;
-    will-change: scroll-position;
 }
 
 .new_art-scrollable::-webkit-scrollbar {

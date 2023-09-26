@@ -1,8 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap');
+/* Regular */
+
+@font-face {
+    font-family: "Red Hat Display";
+    src: url(fonts/RedHatDisplay-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Red Hat Display";
+    src: url(fonts/RedHatDisplay-Italic.ttf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* Semi Bold */
+
+@font-face {
+    font-family: "Red Hat Display";
+    src: url(fonts/RedHatDisplay-SemiBold.ttf);
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Red Hat Display";
+    src: url(fonts/RedHatDisplay-SemiBoldItalic.ttf);
+    font-weight: 600;
+    font-style: italic;
+}
+
+/* Bold */
+
+@font-face {
+    font-family: "Red Hat Display";
+    src: url(fonts/RedHatDisplay-Bold.ttf);
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Red Hat Display";
+    src: url(fonts/RedHatDisplay-BoldItalic.ttf);
+    font-weight: 700;
+    font-style: italic;
+}
 
 * {
     font-family: 'Red Hat Display', system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    letter-spacing: 1px;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.2px;
     --font-color: #DDDCDB;
     --background-color: #DDDCDB;
     --primary-color: #96825F;
@@ -151,7 +198,7 @@ nav a span {
     z-index: 2;
     display: grid;
     place-content: center;
-    font-weight: bold;
+    font-weight: 600;
     transition: 0.3s;
 }
 
@@ -342,7 +389,7 @@ input:-webkit-autofill:active {
 }
 
 .profile-name {
-    font-weight: bold;
+    font-weight: 600;
     color: var(--accent-color);
     margin-right: 11px;
 }
@@ -373,7 +420,8 @@ input:-webkit-autofill:active {
 
 .collection-section,
 .new_art-section,
-.trending-section {
+.trending-section,
+.bottom-content {
     display: grid;
     grid-template-rows: min-content auto;
     gap: 1rem;
@@ -381,7 +429,8 @@ input:-webkit-autofill:active {
 
 .collection-container figure,
 .new_art-container,
-.trending-container {
+.trending-container,
+.bottom-content-container {
     background-color: var(--accent-color);
     border-radius: 0.7rem;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
@@ -460,6 +509,7 @@ input:-webkit-autofill:active {
     display: flex;
     flex-direction: column;
     font-size: 0.9rem;
+    font-weight: 600;
     background-color: var(--accent-color);
     color: var(--secondary-color);
     gap: 20px;
@@ -562,12 +612,13 @@ input:-webkit-autofill:active {
 .new_art-scrollable figcaption {
     display: grid;
     align-content: center;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    font-style: italic;
+    font-weight: 600;
     color: var(--accent-color);
     background-color: var(--secondary-color);
     border-radius: 0 0.3rem 0.3rem 0;
     padding: 10px;
-    font-weight: bold;
 }
 
 .new_art-scrollable a:hover figcaption,
@@ -640,7 +691,7 @@ input:-webkit-autofill:active {
     background-color: var(--accent-color);
     color: var(--secondary-color);
     font-size: 0.9rem;
-    font-weight: bold;
+    font-weight: 600;
     padding: 0.5rem;
     border-radius: 0.2rem;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
@@ -663,7 +714,7 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    font-weight: 600;
     background-color: var(--accent-color);
     color: var(--secondary-color);
     gap: 1rem;

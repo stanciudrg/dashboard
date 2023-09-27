@@ -29,14 +29,14 @@ window.addEventListener('load', (e) => {
 
     let sidebarLogo = document.querySelector(".logo");
     let content = document.querySelector(".content");
-    let loadingAnimation = document.querySelectorAll(".loading-animation");
+    let loadingAnimation = document.querySelector(".loading-animation");
 
     setInterval(show, 1500);
 
     function show() {
         sidebarLogo.classList.add("show-hero");
-        sidebarLogo.firstElementChild.classList.add("show-title")
-        loadingAnimation.forEach((animation) => animation.classList.remove("show"));
+        sidebarLogo.firstElementChild.classList.add("show-title");
+        loadingAnimation.classList.remove("show");
         content.classList.add("show");
     }
 })

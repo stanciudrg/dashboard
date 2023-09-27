@@ -613,11 +613,9 @@ input:-webkit-autofill:active {
     position: relative;
     display: grid;
     grid-template-rows: auto auto;
-    align-items: center;
     font-size: 0.85rem;
     font-style: italic;
     font-weight: 600;
-    text-align: center;
     color: var(--accent-color);
     background-color: var(--secondary-color);
     border-radius: 0 0.3rem 0.3rem 0;

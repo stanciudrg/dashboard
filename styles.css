@@ -613,9 +613,11 @@ input:-webkit-autofill:active {
     position: relative;
     display: grid;
     grid-template-rows: auto auto;
+    align-items: center;
     font-size: 0.85rem;
     font-style: italic;
     font-weight: 600;
+    text-align: center;
     color: var(--accent-color);
     background-color: var(--secondary-color);
     border-radius: 0 0.3rem 0.3rem 0;
@@ -632,16 +634,19 @@ input:-webkit-autofill:active {
     right: 0;
     bottom: 0;
     display: flex;
+    align-items: center;
     font-size: 0.8rem;
     font-style: normal;
+    text-align: center;
     gap: 8px;
-    padding: 3px 5px;
+    padding: 0 5px 3px 5px;
 }
 
 .new_art-scrollable figcaption .painting-metrics .hearts-metrics,
 .new_art-scrollable figcaption .painting-metrics .watch-metrics {
     display: flex;
     align-items: center;
+    text-align: center;
     gap: 4px;
 }
 

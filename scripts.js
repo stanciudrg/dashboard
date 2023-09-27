@@ -25,7 +25,7 @@ window.addEventListener('scroll', (e) => {
 
 })
 
-window.addEventListener('load', (e) => {
+window.addEventListener('DOMContentLoaded', (e) => {
 
     let sidebarLogo = document.querySelector(".logo");
     let content = document.querySelector(".content");

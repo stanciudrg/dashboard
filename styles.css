@@ -420,8 +420,7 @@ input:-webkit-autofill:active {
 
 .collection-section,
 .new_art-section,
-.trending-section,
-.bottom-content {
+.trending-section {
     display: grid;
     grid-template-rows: min-content auto;
     gap: 1rem;
@@ -429,8 +428,7 @@ input:-webkit-autofill:active {
 
 .collection-container figure,
 .new_art-container,
-.trending-container,
-.bottom-content-container {
+.trending-container {
     background-color: var(--accent-color);
     border-radius: 0.7rem;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
@@ -609,8 +607,9 @@ input:-webkit-autofill:active {
 }
 
 .new_art-scrollable figcaption {
+    position: relative;
     display: grid;
-    align-content: center;
+    grid-template-rows: auto auto;
     font-size: 0.85rem;
     font-style: italic;
     font-weight: 600;
@@ -620,10 +619,34 @@ input:-webkit-autofill:active {
     padding: 10px;
 }
 
+.new_art-scrollable figcaption svg {
+    width: 20px;
+    height: 20px;
+}
+
+.new_art-scrollable figcaption .painting-metrics {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    font-size: 0.8rem;
+    font-style: normal;
+    gap: 8px;
+    padding: 3px 5px;
+}
+
+.new_art-scrollable figcaption .painting-metrics .hearts-metrics,
+.new_art-scrollable figcaption .painting-metrics .watch-metrics {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
 .new_art-scrollable a:hover figcaption,
 .new_art-scrollable a:focus-visible figcaption {
     background-color: var(--primary-color);
     color: var(--font-color);
+    fill: var(--background-color)
 }
 
 .trending-container {

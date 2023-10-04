@@ -1,3 +1,5 @@
+/* Font-faces */
+
 /* Regular */
 
 @font-face {
@@ -46,21 +48,25 @@
     font-style: italic;
 }
 
+/* Variable declarations, reset, and font family stack selection */
+
 * {
     font-family: 'Red Hat Display', system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    -webkit-font-smoothing: antialiased;
-    letter-spacing: 0.2px;
     --font-color: #DDDCDB;
     --background-color: #DDDCDB;
     --primary-color: #96825F;
     --secondary-color: #B8B0A0;
     --accent-color: #181818;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.2px;
     overflow-clip-margin: initial;
 }
 
+/* General properties for main elements */
+
 body {
-    background-color: var(--background-color);
     height: 100vh;
+    background-color: var(--background-color);
 }
 
 svg {
@@ -88,14 +94,15 @@ a {
     color: var(--secondary-color);
 }
 
-
 .main-container {
+    min-height: 100%;
     display: grid;
     grid-template-columns: 270px auto;
-    min-height: 100%;
     box-sizing: border-box;
     gap: 1.5rem;
 }
+
+/* Sidebar section */
 
 .sidebar {
     position: relative;
@@ -103,14 +110,14 @@ a {
 
 .sidebar-fixed {
     position: fixed;
-    left: 0;
     top: 0;
-    height: 100%;
+    left: 0;
     width: 270px;
+    height: 100%;
     display: grid;
     grid-template-rows: 1fr 2fr;
-    border-radius: 0 2rem 2rem 0;
     box-sizing: border-box;
+    border-radius: 0 2rem 2rem 0;
     padding: 1rem 0;
 }
 
@@ -119,31 +126,39 @@ a {
     display: grid;
     align-items: center;
     justify-items: center;
-    background-color: var(--accent-color);
     background-position: center;
     background-size: cover;
+    background-color: var(--accent-color);
     padding: 1rem 0;
     border-radius: 0 1.2rem 0 0;
 }
 
+/* Add transparent, dark background while allowing for the gradient effect of h1 to be visible */
+
 .logo::before {
     content: "";
     position: absolute;
-    height: 100%;
     width: 100%;
+    height: 100%;
     background-color: var(--accent-color);
     opacity: 0.6;
     border-radius: 0 1.2rem 0 0;
 }
 
+/* -------------------------- */
+
+/* Add gradient text effect */
+
 h1 {
     z-index: 1;
     background-image: linear-gradient(to right, #96825f, #9e8d6f, #a7997f, #afa48f, #b8b0a0);
-    -webkit-background-clip: text;
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 0;
 }
+
+/* -------------------------- */
 
 nav {
     background-color: var(--accent-color);
@@ -166,13 +181,15 @@ nav a:focus-visible {
     border: none;
 }
 
+/* Hover button animation */
+
 nav a::before {
     content: "";
     width: 100%;
     height: 100%;
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
     background-image: linear-gradient(to right, #96825f, #9e8d6f, #a7997f, #afa48f, #b8b0a0);
     transform: translateX(-150%);
     transition: 0.3s;
@@ -182,6 +199,8 @@ nav a:hover::before,
 nav a:focus-visible::before {
     transform: translateX(0);
 }
+
+/* -------------------------- */
 
 nav a svg {
     z-index: 2;
@@ -215,8 +234,8 @@ nav a:focus-visible svg+span {
 nav a span+span {
     width: 20px;
     height: 20px;
-    text-align: center;
     font-size: 14px;
+    text-align: center;
     color: #b8b0a0d2;
 }
 
@@ -238,6 +257,8 @@ nav a:hover:nth-child(6) span+span {
     box-shadow: 0px 0px 2px 1px var(--accent-color);
 }
 
+/* Webpage content */
+
 .content {
     display: none;
     background-color: var(--secondary-color);
@@ -247,6 +268,8 @@ main {
     display: grid;
     grid-template-rows: min-content auto auto;
 }
+
+/* Top-section, including the search-bar and profile details (notification button, profile photo, and profile name) */
 
 .top-content {
     z-index: 10;
@@ -260,29 +283,36 @@ main {
     margin-bottom: 1rem;
 }
 
+
+/* Search-bar */
+
 .search-bar {
     min-width: 350px;
     max-width: 500px;
     height: 55px;
-    box-sizing: border-box;
     display: grid;
     grid-template-columns: min-content auto min-content;
     align-self: start;
     align-items: center;
+    box-sizing: border-box;
     background-color: var(--accent-color);
     border-radius: 0.5rem;
 }
+
+/* Shows the focus-outline on the search-bar container, not on the input itself */
 
 .search-bar:focus-within {
     outline: 3px solid var(--background-color);
     border-radius: 0.5rem;
 }
 
+/* -------------------------- */
+
 .search-bar>svg {
-    fill: var(--secondary-color);
-    cursor: text;
     height: 100%;
+    fill: var(--secondary-color);
     padding-left: 1rem;
+    cursor: text;
 }
 
 .search-bar:focus-within svg {
@@ -295,17 +325,21 @@ main {
     appearance: none;
     background-color: inherit;
     color: var(--secondary-color);
-    border: 0;
     padding-left: 1rem;
+    border: 0;
 }
 
 .search-bar:focus-within input {
     color: var(--background-color);
 }
 
+/* Disable the default cancel button on webkit */
+
 .search-bar input::-webkit-search-cancel-button {
     appearance: none;
 }
+
+/* -------------------------- */
 
 .search-bar input:focus-visible {
     appearance: inherit;
@@ -314,11 +348,13 @@ main {
     color: var(--background-color);
 }
 
+/* Custom search-bar cancel button */
+
 .search-bar button {
+    visibility: hidden;
     display: grid;
     place-content: center;
     fill: var(--secondary-color);
-    visibility: hidden;
     margin: 0 1rem;
 }
 
@@ -329,7 +365,9 @@ main {
     border-radius: 0.3rem;
 }
 
-/* Disable autofill background color */
+/* -------------------------- */
+
+/* Disable input autofill background color */
 
 
 input:-webkit-autofill,
@@ -340,7 +378,9 @@ input:-webkit-autofill:active {
     -webkit-transition-delay: 9999s;
 }
 
-/* ----- */
+/* -------------------------- */
+
+/* Profile details section */
 
 .profile-details {
     display: grid;
@@ -357,9 +397,9 @@ input:-webkit-autofill:active {
 
 .profile-details button:first-of-type:focus-visible {
     appearance: none;
-    border: 0;
     outline: 3px solid var(--background-color);
     border-radius: 0.3rem;
+    border: 0;
 }
 
 .profile-details button:first-of-type svg {
@@ -396,10 +436,12 @@ input:-webkit-autofill:active {
 
 .profile-name:focus-visible {
     appearance: none;
-    border: none;
     outline: 3px solid var(--background-color);
     border-radius: 0.3rem;
+    border: none;
 }
+
+/* Main section containing the collections, new art, trending art styles, and communities sections */
 
 .main-content {
     justify-self: center;
@@ -413,9 +455,9 @@ input:-webkit-autofill:active {
 }
 
 .main-content h2 {
-    margin: 0 0 0 0.5rem;
     font-size: 1.1rem;
     color: var(--accent-color);
+    margin: 0 0 0 0.5rem;
 }
 
 .collection-section,
@@ -436,13 +478,15 @@ input:-webkit-autofill:active {
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
+/* Collections section */
+
 .collection-section {
     grid-row: 1 / 3;
 }
 
 .collection-container {
-    max-width: 1450px;
     min-width: 400px;
+    max-width: 1450px;
     overflow-y: scroll;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -454,6 +498,8 @@ input:-webkit-autofill:active {
     border-radius: 0.7rem;
     scrollbar-color: rgb(24, 24, 24, 0.9) rgba(255, 255, 255, 0.2);
 }
+
+/* Custom scrollbar for webkit browsers */
 
 .collection-container::-webkit-scrollbar {
     width: 10px;
@@ -472,6 +518,8 @@ input:-webkit-autofill:active {
 .collection-container::-webkit-scrollbar-thumb:hover {
     background: rgb(24, 24, 24, 0.7);
 }
+
+/* -------------------------- */
 
 .collection-container figure {
     position: relative;
@@ -494,6 +542,8 @@ input:-webkit-autofill:active {
     border-radius: 0.7rem 0.7rem 0 0;
 }
 
+/* Modify the image position for certain containers to bring painting details into view */
+
 .collection-container figure:nth-child(4) img {
     object-position: 0 -35px;
 }
@@ -502,13 +552,17 @@ input:-webkit-autofill:active {
     object-position: top;
 }
 
+/* -------------------------- */
+
+/* Painting details, containing name, author, year of publication, and the "Download" and "Share" buttons */
+
 .collection-container figcaption {
     width: 100%;
     position: absolute;
     bottom: 0;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     font-size: 0.9rem;
     font-weight: 600;
     background-color: var(--accent-color);
@@ -520,11 +574,15 @@ input:-webkit-autofill:active {
     transition: 0.3s;
 }
 
+/* Hover animation */
+
 .collection-container figure:hover figcaption,
 .collection-container figure:focus-visible figcaption,
 .collection-container figure:focus-within figcaption {
     transform: translateY(0);
 }
+
+/* -------------------------- */
 
 .fig-buttons {
     position: absolute;
@@ -543,9 +601,9 @@ input:-webkit-autofill:active {
 
 .fig-buttons button:focus-visible {
     appearance: none;
-    border: none;
     outline: 2px solid var(--background-color);
     border-radius: 0.3rem;
+    border: none;
 }
 
 .fig-buttons button svg {
@@ -557,6 +615,8 @@ input:-webkit-autofill:active {
     fill: var(--primary-color);
 }
 
+/* New art section */
+
 .new_art-container {
     overflow: auto;
     display: grid;
@@ -564,6 +624,8 @@ input:-webkit-autofill:active {
     place-content: center;
     padding: 3px 15px 0 15px;
 }
+
+/* Custom scroll-buttons */
 
 .new_art-container button {
     color: var(--secondary-color);
@@ -573,23 +635,31 @@ input:-webkit-autofill:active {
     color: var(--primary-color);
 }
 
+/* -------------------------- */
+
+/* Scrollable container for new-art pieces */
+
 .new_art-scrollable {
-    display: grid;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    display: grid;
     grid-template-rows: repeat(9, 75px);
     gap: 15px;
     border-radius: 0.3rem;
     margin-bottom: 3px;
+    scrollbar-width: none;
+    scroll-snap-type: y mandatory;
+    -ms-overflow-style: none;
 }
+
+/* Disable default scrollbar (was replaced by custom scroll buttons described above) */
 
 .new_art-scrollable::-webkit-scrollbar {
     display: none;
-    -ms-overflow-style: none;
     scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+
+/* -------------------------- */
 
 .new_art-scrollable a:focus-visible {
     appearance: none;
@@ -599,15 +669,17 @@ input:-webkit-autofill:active {
 
 .new_art-scrollable figure {
     display: grid;
-    scroll-snap-align: center;
     grid-template-columns: min-content auto;
     margin: 0;
+    scroll-snap-align: center;
 }
 
 .new_art-scrollable img {
     object-fit: cover;
     border-radius: 0.3rem 0 0 0.3rem;
 }
+
+/* New-art description, containing the painting name and metrics (Likes and Views count) */
 
 .new_art-scrollable figcaption {
     position: relative;
@@ -616,8 +688,8 @@ input:-webkit-autofill:active {
     font-size: 0.85rem;
     font-style: italic;
     font-weight: 600;
-    color: var(--accent-color);
     background-color: var(--secondary-color);
+    color: var(--accent-color);
     border-radius: 0 0.3rem 0.3rem 0;
     padding: 10px;
 }
@@ -654,6 +726,8 @@ input:-webkit-autofill:active {
     color: var(--font-color);
     fill: var(--background-color)
 }
+
+/* Trending section */
 
 .trending-container {
     display: grid;
@@ -699,14 +773,16 @@ input:-webkit-autofill:active {
     outline: none;
 }
 
+/* Add transparent background color background image without interfering with background image's opacity */
+
 .trending-item::before {
     content: "";
     position: absolute;
-    height: 100%;
     width: 100%;
+    height: 100%;
     background-color: var(--primary-color);
-    opacity: 0.4;
     border-radius: inherit;
+    opacity: 0.4;
 }
 
 .trending-item:hover::before,
@@ -714,12 +790,14 @@ input:-webkit-autofill:active {
     opacity: 0.1;
 }
 
+/* -------------------------- */
+
 .trending-item span {
     z-index: 1;
-    background-color: var(--accent-color);
-    color: var(--secondary-color);
     font-size: 0.9rem;
     font-weight: 600;
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
     padding: 0.5rem;
     border-radius: 0.2rem;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
@@ -734,18 +812,20 @@ input:-webkit-autofill:active {
     outline: 3px solid var(--background-color);
 }
 
+/* Communities section */
+
 .communities-section {
     grid-column: 1 / 3;
 }
 
 .communities-section h2 {
-    padding: 1rem 1rem 0 1rem;
     color: var(--secondary-color);
+    padding: 1rem 1rem 0 1rem;
 }
 
 .communities-container {
-    display: grid;
     grid-column: 1 / 3;
+    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
     grid-template-rows: 1fr 1fr;
     gap: 1rem;
@@ -764,16 +844,20 @@ input:-webkit-autofill:active {
     border-radius: 0.3rem;
 }
 
+/* Separate community name and community metrics with a diagonal line */
+
 .community::before {
     content: "";
     position: absolute;
-    height: 100%;
-    width: 10px;
     top: 0;
     left: 50%;
+    width: 10px;
+    height: 100%;
     background-color: var(--accent-color);
     transform: skewX(-40deg);
 }
+
+/* -------------------------- */
 
 .community .community-name,
 .community .community-metrics {
@@ -809,14 +893,16 @@ input:-webkit-autofill:active {
     background-image: linear-gradient(to right, #b8b0a0, #c2bbae, #ccc5bd, #d5d1cc, #dddcdb);
 }
 
+/* Footer */
+
 footer {
-    max-height: 100px;
-    box-sizing: border-box;
     align-self: end;
+    max-height: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     font-weight: 600;
     background-color: var(--accent-color);
     color: var(--secondary-color);
@@ -839,25 +925,27 @@ footer {
     fill: var(--background-color);
 }
 
+/* Webpage loading animation */
+
 .loading-animation {
-    margin: auto;
     display: none;
     justify-content: center;
     align-items: center;
     background-color: var(--accent-color);
     border-radius: 1rem;
     padding: 1rem;
+    margin: auto;
 }
 
 .dual-ring {
     content: " ";
-    display: block;
     width: 64px;
     height: 64px;
-    margin: 8px;
+    display: block;
     border-radius: 50%;
     border: 6px solid var(--primary-color);
     border-color: var(--primary-color) transparent var(--secondary-color) transparent;
+    margin: 8px;
     animation: dual-ring 1.2s linear infinite;
 }
 
@@ -880,6 +968,8 @@ footer {
     background-image: url(hero.webp);
 }
 
+/* Media queries */
+
 @media (max-width: 1050px) {
 
     .main-container {
@@ -887,8 +977,8 @@ footer {
     }
 
     .sidebar-fixed {
-        grid-template-rows: auto;
         width: 50px;
+        grid-template-rows: auto;
         justify-content: center;
     }
 

@@ -1,3 +1,5 @@
+// Variables
+
 const scrollUpButton = document.querySelector(".scroll-up");
 const scrollDownButton = document.querySelector(".scroll-down");
 const scrollableContainer = document.querySelector(".new_art-scrollable");
@@ -7,11 +9,8 @@ const clearSearchBar = document.querySelector(".searchbar_clear-icon");
 const searchBarIcon = document.querySelector('.searchbar-icon');
 const collectionContainer = document.querySelector('.collection-container');
 const newArtContainer = document.querySelector('.new_art-container');
-collectionContainer.addEventListener('mouseover', addWillChange);
-newArtContainer.addEventListener('mouseover', addWillChange);
-collectionContainer.addEventListener('mouseout', removeWillChange);
-newArtContainer.addEventListener('mouseout', removeWillChange);
 
+// Add box-shadow effect to fixed top-header section whenever the user scrolls down to increase visibility
 
 window.addEventListener('scroll', (e) => {
 
@@ -24,6 +23,8 @@ window.addEventListener('scroll', (e) => {
     }
 
 })
+
+// Show loading animation until the webpage is loaded 
 
 window.addEventListener('DOMContentLoaded', (e) => {
 
@@ -41,7 +42,16 @@ window.addEventListener('DOMContentLoaded', (e) => {
     }
 })
 
+// Add will-change property when the mouse enters the container and disable it when the mouse leaves the container
+// to increase performance
+
+collectionContainer.addEventListener('mouseover', addWillChange);
+newArtContainer.addEventListener('mouseover', addWillChange);
+collectionContainer.addEventListener('mouseout', removeWillChange);
+newArtContainer.addEventListener('mouseout', removeWillChange);
+
 function addWillChange(e) {
+
     if (this.classList.contains("new_art-container")) {
         this.firstElementChild.nextElementSibling.style.willChange = 'scroll-position';
     } else {
@@ -58,6 +68,8 @@ function removeWillChange(e) {
     }
 }
 
+// Show custom search-bar cancel button on user input
+
 searchBarIcon.addEventListener("click", (e) => {
     searchBar.focus();
 })
@@ -68,15 +80,22 @@ searchBar.addEventListener("input", (e) => {
 
 })
 
+// Clear search-bar input value on clear button click
+
 clearSearchBar.addEventListener("click", (e) => {
     searchBar.value = "";
     searchBar.focus();
     clearSearchBar.style.visibility = 'hidden';
 })
 
+// Prevent default behavior of "Download" and "Share" buttons within the painting description, as they were interfering
+// with the keyboard focus behavior by locking their containers in the "focus" on click
+
 figure.forEach(button => button.addEventListener('mousedown', (e) => {
     e.preventDefault();
 }));
+
+// Add on-click scroll functionality for the custom scroll buttons within the New Art section
 
 scrollDownButton.addEventListener("click", (e) => {
     scrollableContainer.scrollBy({
